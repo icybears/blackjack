@@ -1,4 +1,6 @@
 
-import {Test} from './test.js';
+import {Card} from './Card.js';
 
-let t = new Test();
+let c = new Card("Ace", "Spades");
+
+console.log(c.name);
