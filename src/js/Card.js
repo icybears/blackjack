@@ -58,13 +58,13 @@ export class Card {
                 this._score = 10;
                 break;
             case "jack":
-                this._score = 11;
+                this._score = 10;
                 break;
             case "queen":
-                this._score = 12;
+                this._score = 10;
                 break;
             case "king":
-                this._score = 13;
+                this._score = 10;
                 break;
             default:
                 this._score = null;
