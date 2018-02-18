@@ -9,10 +9,7 @@ export class Card {
 
     }
 
-    get name() {
-        return this.value + " of " + this.suit;
-    }
-
+    
     get value() {
         return this._value;
     }
@@ -22,6 +19,10 @@ export class Card {
     }
     get score() {
         return this._score;
+    }
+
+    getName() {
+        return this.value + " of " + this.suit;
     }
 
     calculateCardScore() {
