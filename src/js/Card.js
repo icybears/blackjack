@@ -2,9 +2,10 @@ export class Card {
 
     constructor(value, suit) {
 
-        this._value = value;
-        this._suit = suit;
-        this._score = calculateCardScore();
+        
+        this._value = value.toLowerCase();
+        this._suit = suit.toLowerCase();
+        this.calculateCardScore();
 
     }
 
