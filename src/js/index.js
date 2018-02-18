@@ -1,7 +1,7 @@
 
-import {Card} from './Card.js';
+import {Game} from './Game.js';
 
-let c = new Card("jack", "spades");
 
-console.log(c.name);
-console.log("this card is worth "+ c.score+" points");
+let game = new Game();
+
+game.loadCards();
