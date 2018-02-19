@@ -13,6 +13,7 @@ export class Game {
             "type": "single-deck"
         }
         this._turn = null;
+        this._hasStarted = false;
         
 
     }
@@ -25,8 +26,12 @@ export class Game {
         this.distributeCards();
 
         this._turn = this.player;
+        this._hasStarted = true;
     }
 
+    get hasStarted () {
+        return this._hasStarted;
+    }
     get turn() {
         return this._turn;
     }
@@ -49,7 +54,9 @@ export class Game {
     }
 
     playerStand () {
-        this.player.stand();
+        if(!this.player.playerStanded && this.turn === this.player){
+            this.player.stand();
+        }
     }
 
     dealerHit () {

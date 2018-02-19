@@ -37,9 +37,6 @@ export class Player {
         this._score = score;
     }
 
-    hit() {
-
-    }
 
     stand() {
         this._playerStanded = true;
