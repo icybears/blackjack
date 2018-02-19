@@ -18,6 +18,9 @@ export class Player {
     get score() {
         return this._score;
     }
+    get playerStanded () {
+        return this._playerStanded;
+    }
 
     giveCard(card) {
         this._cards.push(card);

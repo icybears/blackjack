@@ -27,6 +27,10 @@ export class Game {
         this._turn = this.player;
     }
 
+    get turn() {
+        return this._turn;
+    }
+
     distributeCards() {
 
         this.player.giveCard(this.deck.drawCard());
@@ -37,9 +41,11 @@ export class Game {
     }
 
     playerHit () {
-        this.player.giveCard(this.deck.drawCard());
+        if(!this.player.playerStanded && this.turn === this.player){
+            this.player.giveCard(this.deck.drawCard());
 
-        this._turn = this.dealer;
+            this._turn = this.dealer;
+        }
     }
 
     playerStand () {
@@ -47,7 +53,10 @@ export class Game {
     }
 
     dealerHit () {
-        this.dealer.giveCard(this.deck.drawCard());
+        if(this.turn === this.dealer){
+            this.dealer.giveCard(this.deck.drawCard());
+            this._turn = this.player;
+        }
     }
 
 

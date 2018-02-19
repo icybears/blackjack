@@ -2,6 +2,11 @@
 import {Game} from './Game.js';
 
 
-let game = new Game();
+let game;
 
-game.start();
+let btnStart = document.getElementById("start");
+
+btnStart.addEventListener("click", function(e) {
+    game = new Game();
+    game.start();
+})
