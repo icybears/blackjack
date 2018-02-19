@@ -5,6 +5,7 @@ export class Player {
         this._name = name;
         this._score = 0;
         this._cards = [];
+        this._playerStanded = false;
     }
 
     get name() {
@@ -31,5 +32,13 @@ export class Player {
         }, this)
 
         this._score = score;
+    }
+
+    hit() {
+
+    }
+
+    stand() {
+        this._playerStanded = true;
     }
 }
