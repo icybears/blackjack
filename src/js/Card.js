@@ -5,6 +5,7 @@ export class Card {
         
         this._value = value.toLowerCase();
         this._suit = suit.toLowerCase();
+        this._score = null;
         this.calculateCardScore();
 
     }

@@ -5,20 +5,30 @@ import {Player} from './Player.js';
 export class Game {
 
     constructor () {
-       
+       this._options = {
+           "type" : "single-deck"
+       }
+
     }
 
     start () {
-        let deck = new Deck();
+        this.deck = new Deck();
+        this.player = new Player();
+        this.dealer = new Player("dealer");
 
-        console.dir(deck);
-        console.log(deck[0]);
+        this.distributeCards();
+    }
+
+    distributeCards () {
+        
+        this.player.giveCard(this.deck.drawCard());
+        this.player.giveCard(this.deck.drawCard());
+        this.dealer.giveCard(this.deck.drawCard());
+        this.dealer.giveCard(this.deck.drawCard());
+        
+        
     }
 
   
 }
 
-
-let game = new Game();
-
-game.start();

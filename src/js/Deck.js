@@ -21,6 +21,15 @@ export class Deck {
         }
 
     }
+
+    drawCard () {
+        let card = this.getRandomCard();
+
+        this.removeCard(card);
+
+        return card;
+
+    }
     getCardById(id) {
         return (
         this._deck.find(function(deckElem) {
@@ -38,12 +47,11 @@ export class Deck {
         let id = this.rand(this._deck.length);
         let card;
         do{
-           card = getCardById(id);
+           card = this.getCardById(id);
         } while(card);
 
         return card;
     }
-
 
     rand (max) {
         // between 0 and max, max not included
