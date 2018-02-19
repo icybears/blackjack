@@ -20,12 +20,16 @@ export class Player {
 
     giveCard(card) {
         this._cards.push(card);
-        calculatePlayerScore();
+        this.calculatePlayerScore();
+        // console.log(this);
     }
 
     calculatePlayerScore() {
+        let score = 0;
         this._cards.forEach(function(obj) {
-            this._score += obj.card.score;
-        })
+            score += obj.card.score;
+        }, this)
+
+        this._score = score;
     }
 }

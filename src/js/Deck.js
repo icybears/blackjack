@@ -20,14 +20,14 @@ export class Deck {
             }
         }
 
-        
+
     }
 
     drawCard () {
         let card = this.getRandomCard();
 
         this.removeCard(card);
-
+        // console.log(card);
         return card;
 
     }

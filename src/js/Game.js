@@ -26,8 +26,12 @@ export class Game {
          this.dealer.giveCard(this.deck.drawCard());
          this.dealer.giveCard(this.deck.drawCard());
         
-        console.dir(this.dealer.cards);
-        console.dir(this.player.cards);
+       
+        console.dir(this.player);
+        console.log('Player score '+this.player.score);
+        console.dir(this.dealer);
+         console.log('Dealer score '+this.dealer.score);
+        
     }
 
   
