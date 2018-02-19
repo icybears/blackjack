@@ -11,11 +11,21 @@ export class Player {
         return this._name;
     }
 
+    get cards() {
+        return this._cards;
+    }
     get score() {
         return this._score;
     }
 
     giveCard(card) {
         this._cards.push(card);
+        calculatePlayerScore();
+    }
+
+    calculatePlayerScore() {
+        this._cards.forEach(function(obj) {
+            this._score += obj.card.score;
+        })
     }
 }

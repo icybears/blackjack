@@ -11,7 +11,7 @@ export class Deck {
         for (let suit of Card.suits) {
 
             for (let val of Card.values) {
-
+                
                 this._deck.push({ 
                                 id : i , 
                                 card: new Card(val, suit)
@@ -20,6 +20,7 @@ export class Deck {
             }
         }
 
+        
     }
 
     drawCard () {
@@ -44,11 +45,12 @@ export class Deck {
     }
 
     getRandomCard () {
-        let id = this.rand(this._deck.length);
+        let id; 
         let card;
         do{
+            id = this.rand(this._deck.length);
            card = this.getCardById(id);
-        } while(card);
+        } while(!card);
 
         return card;
     }
