@@ -5,68 +5,49 @@ import {
 export class Deck {
 
     constructor() {
-
+        let i = 0;
         this._deck = [];
+
         for (let suit of Card.suits) {
+
             for (let val of Card.values) {
-                this._deck.push(new Card(val, suit));
+
+                this._deck.push({ 
+                                id : i , 
+                                card: new Card(val, suit)
+                            });
+                            i++;
             }
         }
 
     }
-
-    removeCardFromDeck (card) {
+    getCardById(id) {
+        return (
+        this._deck.find(function(deckElem) {
+            return deckElem.id == id;
+        })
+    );
+    }
+    removeCard (card) {
         let index = this._deck.indexOf(card);
 
         this._deck.splice(index, 1);
     }
 
     getRandomCard () {
-        
-        return this.getRandomValue() + " of " + this.getRandomSuit();
+        let id = this.rand(this._deck.length);
+        let card;
+        do{
+           card = getCardById(id);
+        } while(card);
+
+        return card;
     }
 
-    getRandomValue () {
-
-        let randNum = this.rand(12);
-
-        let values = {
-            "0" : "one",
-            "1" : "two",
-            "2" : "three",
-            "3" : "four",
-            "4" : "five",
-            "5" : "six",
-            "6" : "seven",
-            "7" : "eight",
-            "8" : "nine",
-            "9" : "ten",
-            "10" : "jack",
-            "11" : "queen",
-            "12" : "king"
-        }
-
-        return values[randNum.toString()];
-
-    }
-
-    getRandomSuit () {
-
-        let randNum = this.rand(3);
-
-        let suits = {
-            "0" : "spades",
-            "1" : "hearts",
-            "2" : "diamonds",
-            "3" : "clubs"
-        }
-
-        return suits[randNum.toString()];
-    }
 
     rand (max) {
-        // between 0 and max, both included
-        return Math.trunc(Math.random() * max + 1);
+        // between 0 and max, max not included
+        return Math.trunc(Math.random() * max);
     }
 
 }
